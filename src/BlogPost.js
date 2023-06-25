@@ -35,8 +35,14 @@ const BlogPost = () => {
 
     if (favorites) {
       const existingFavorites = JSON.parse(favorites);
-      const updatedFavorites = [...existingFavorites, post];
-      localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      const postExists = existingFavorites.some((post) => post.id !== postId);
+      console.log(existingFavorites);
+      console.log(postId);
+
+      if (!postExists) {
+        const updatedFavorites = [...existingFavorites, post];
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+      }
     } else {
       const newFavorites = [post];
       localStorage.setItem("favorites", JSON.stringify(newFavorites));
