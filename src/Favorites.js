@@ -17,8 +17,6 @@ const Favorites = () => {
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
   };
 
-  console.log(favorite);
-
   return (
     <div>
       <Link to="/">

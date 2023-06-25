@@ -6,7 +6,6 @@ const BlogPost = () => {
   const [post, setPost] = useState(null);
   const [author, setAuthor] = useState("");
   const [comments, setComments] = useState("");
-  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -36,8 +35,6 @@ const BlogPost = () => {
     if (favorites) {
       const existingFavorites = JSON.parse(favorites);
       const postExists = existingFavorites.some((post) => post.id !== postId);
-      console.log(existingFavorites);
-      console.log(postId);
 
       if (!postExists) {
         const updatedFavorites = [...existingFavorites, post];
